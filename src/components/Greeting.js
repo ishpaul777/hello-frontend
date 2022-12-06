@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getGreeting } from "../redux/greetingReducer";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getGreeting } from '../redux/greetingReducer';
 
 function Greeting() {
   const greeting = useSelector((state) => state.greeting);
@@ -8,7 +8,7 @@ function Greeting() {
 
   React.useEffect(() => {
     dispatch(getGreeting());
-  }, []);
+  }, [dispatch]);
 
   function handleClick() {
     dispatch(getGreeting());
@@ -17,8 +17,11 @@ function Greeting() {
   return (
     <>
       <h1>{greeting.message}</h1>
-			<i>- {greeting.language}</i>
-      <button onClick={handleClick}>Get Greeting</button>
+      <i>
+        -
+        {greeting.language}
+      </i>
+      <button type="button" onClick={handleClick}>Get Greeting</button>
     </>
   );
 }
